@@ -1,0 +1,39 @@
+<h1>Paterson Production Schedule</h1>
+<div class="btn-group" role="group" aria-label="Basic example">
+    <p>
+        Search by:
+        <button mdbBtn type="button" color="primary" outline="true" class="waves-light" mdbWavesEffect (click)="search_all()">All</button>
+        <button mdbBtn type="button" color="primary" outline="true" class="waves-light" mdbWavesEffect (click)="search_latches()">Latches</button>
+        <button mdbBtn type="button" color="primary" outline="true" class="waves-light" mdbWavesEffect (click)="search_clamps()">Clamps</button>
+    </p>
+</div>
+<table>
+        <th bgcolor='green'>Shipped</th>
+        <th bgcolor='yellow'>Waiting on VA</th>
+        <th bgcolor='Red'>Stopped</th>
+        <th bgcolor='lightblue'>Stock</th>
+        <th bgcolor='orange'>Delayed</th>
+</table>
+<h1></h1>
+<table *ngIf="prod_status">
+    <tr>
+        <th>Item Number</th>
+        <th>State</th>
+        <th>Type</th>
+        <th>Part Number</th>
+        <th>Quantity</th>
+        <th>Needs</th>
+        <th>status</th>
+        <th>Ship Date</th>
+    </tr>
+    <tr *ngFor="let status of prod_status">
+        <td style="background-color:{{status.color}}">{{ status.number }}</td>
+        <td style="background-color:{{status.color}}">{{ status.state }}</td>
+        <td style="background-color:{{status.color}}">{{ status.type }}</td>
+        <td style="background-color:{{status.color}}">{{ status.part_number }}</td>
+        <td style="background-color:{{status.color}}">{{ status.quantity }}</td>
+        <td style="background-color:{{status.color}}">{{ status.needs }}</td>
+        <td style="background-color:{{status.color}}">{{ status.status }}</td>
+        <td style="background-color:{{status.color}}">{{ status.ship_date }}</td>
+    </tr>
+</table>
