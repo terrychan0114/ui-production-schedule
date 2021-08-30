@@ -11,6 +11,7 @@ export class HomeComponent implements OnInit {
   prod_status: scheduleStatus[];
   sorting: string = 'number';
   group: string;
+  ind_data: scheduleStatus[];
   input_data = {
     'sorting':'number',
     'group':'',
